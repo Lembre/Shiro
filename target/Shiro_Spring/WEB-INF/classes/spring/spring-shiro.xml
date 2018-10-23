@@ -29,6 +29,12 @@
 
     <!--3.配置Realm,这里自定义Realm,写一个类，实现Realm接口-->
     <bean id="jdbcRealm" class="shiro.realms.ShiroRealm">
+        <property name="credentialsMatcher">
+            <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+                <property name="hashAlgorithmName" value="MD5"></property>
+                <property name="hashIterations" value="1024"></property><!--配置MD加密的次数，次数越多越安全-->
+            </bean>
+        </property>
     </bean>
 
     <!--4. 配置 LifecycleBeanPostProcessor. 可以自定的来调用配置在 Spring IOC 容器中 shiro bean 的生命周期方法.-->
@@ -61,12 +67,12 @@
             <value>
                 /login.jsp = anon<!--因为 /** = authc表示出了这个都得配置，只有这个页面能匿名访问-->
                 /shiro/login = anon
-                <!--/shiro/logout = logout
+               /shiro/logout = logout<!--如果认证成功后，没有执行登出的话，那么由于缓存的存在，返回登陆界面，不管输入的密码是否正确都能成功的进入界面-->
 
-                /user.jsp = roles[user]
-                /admin.jsp = roles[admin]
+                <!--/user.jsp = roles[user]
+               /admin.jsp = roles[admin]
 
-                # everything else requires authentication:-->
+               # everything else requires authentication:-->
                 /** = authc
             </value>
         </property>

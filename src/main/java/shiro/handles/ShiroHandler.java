@@ -30,7 +30,7 @@ public class ShiroHandler {
 
             catch (AuthenticationException ae) {
                 //unexpected condition?  error?
-                System.out.println("1:"+ae.getMessage());
+                System.out.println("2.login fail:"+ae.getMessage());
             }
         }
         return "redirect:/list.jsp";
