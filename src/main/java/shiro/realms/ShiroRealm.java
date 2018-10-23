@@ -14,12 +14,13 @@ import org.apache.shiro.subject.PrincipalCollection;
 public class ShiroRealm extends AuthorizingRealm {
 
     @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+        System.out.println("doGetAuthenticationInfo"+authenticationToken);
         return null;
     }
 
     @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         return null;
     }
 }

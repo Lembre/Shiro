@@ -11,7 +11,9 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!--扫描包-->
-    <context:component-scan base-package="web"/>
+    <context:component-scan base-package="web"></context:component-scan>
+    <context:component-scan base-package="shiro.realms"></context:component-scan>
+    <context:component-scan base-package="shiro.handles"></context:component-scan>
 
     <!--配置spring mvc-->
     <!--mvc的注解驱动器，通过它可以替代处理器映射器和适配器-->

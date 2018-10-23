@@ -60,8 +60,8 @@
         <property name="filterChainDefinitions">
             <value>
                 /login.jsp = anon<!--因为 /** = authc表示出了这个都得配置，只有这个页面能匿名访问-->
-               <!-- /shiro/login = anon
-                /shiro/logout = logout
+                /shiro/login = anon
+                <!--/shiro/logout = logout
 
                 /user.jsp = roles[user]
                 /admin.jsp = roles[admin]

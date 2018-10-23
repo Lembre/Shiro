@@ -1,4 +1,10 @@
-<ehcache >
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<ehcache>
 
     <!-- Sets the path to the directory where cache .data files are created.
 
@@ -10,33 +16,7 @@
          user.dir - User's current working directory
          java.io.tmpdir - Default temp file path -->
     <diskStore path="java.io.tmpdir"/>
-    
-    <cache name="authorizationCache"
-           maxBytesLocalHeap="20M"
-           eternal="false"
-           timeToIdleSeconds="3600"
-           timeToLiveSeconds="0"
-           overflowToDisk="false"
-           statistics="true">
-    </cache>
 
-    <cache name="authenticationCache"
-           maxBytesLocalHeap="20M"
-           eternal="false"
-           timeToIdleSeconds="3600"
-           timeToLiveSeconds="0"
-           overflowToDisk="false"
-           statistics="true">
-    </cache>
-
-    <cache name="shiro-activeSessionCache"
-           maxBytesLocalHeap="20M"
-           eternal="false"
-           timeToIdleSeconds="3600"
-           timeToLiveSeconds="0"
-           overflowToDisk="false"
-           statistics="true">
-    </cache>
 
     <!--Default Cache configuration. These will applied to caches programmatically created through
         the CacheManager.
